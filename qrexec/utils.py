@@ -118,7 +118,7 @@ def get_system_info():
 
 def prepare_subprocess_kwds(input):
     '''Prepare kwds for :py:func:`subprocess.run` for given input
-    '''
+    ''' # pylint: disable=redefined-builtin
     kwds = {}
     if input is None:
         kwds['stdin'] = subprocess.DEVNULL

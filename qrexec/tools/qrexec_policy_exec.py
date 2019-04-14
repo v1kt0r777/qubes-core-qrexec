@@ -72,8 +72,7 @@ class DBusAskResolution(parser.AskResolution):
         if response:
             return self.handle_user_response(True, response).execute(
                 caller_ident)
-        else:
-            return self.handle_user_response(False, None)
+        return self.handle_user_response(False, None)
 
 def prepare_resolution_types(*, just_evaluate, assume_yes_for_ask):
     ret = {
@@ -145,7 +144,7 @@ def main(args=None):
                 just_evaluate=args.just_evaluate,
                 assume_yes_for_ask=args.assume_yes_for_ask))
         resolution = policy.evaluate(request)
-        result = resolution.execute(caller_ident)
+        resolution.execute(caller_ident)
         log.info(log_prefix + 'allowed to {}'.format(resolution.target))
 
     except exc.PolicySyntaxError as err:
