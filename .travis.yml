@@ -2,6 +2,7 @@ sudo: required
 dist: xenial
 language: python
 install:
+ - sudo apt-get -y install python3-gi gir1.2-gtk-3.0
  - pip install --quiet -r ci/requirements.txt
  - git clone https://github.com/QubesOS/qubes-builder ~/qubes-builder
 script: ~/qubes-builder/scripts/travis-build
