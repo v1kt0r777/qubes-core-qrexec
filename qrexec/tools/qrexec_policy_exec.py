@@ -125,7 +125,7 @@ def main(args=None):
     try:
         system_info = utils.get_system_info()
     except exc.QubesMgmtException as err:
-        log.error(log_prefix + 'error getting system info: ' + str(err))
+        log.error(log_prefix + 'error getting system info: %s', err)
         return 1
 
     try:
@@ -147,13 +147,13 @@ def main(args=None):
         result = resolution.execute(caller_ident)
         if result is not None:
             resolution = result
-        log.info(log_prefix + 'allowed to {}'.format(resolution.target))
+        log.info(log_prefix + 'allowed to %s', resolution.target)
 
     except exc.PolicySyntaxError as err:
-        log.error(log_prefix + 'error loading policy: ' + str(err))
+        log.error(log_prefix + 'error loading policy: %s', err)
         return 1
     except exc.AccessDenied as err:
-        log.info(log_prefix + 'denied: ' + str(err))
+        log.info(log_prefix + 'denied: %s', err)
         return 1
     return 0
 

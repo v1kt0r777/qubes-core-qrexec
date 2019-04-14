@@ -825,7 +825,7 @@ class Action(enum.Enum):
     deny = Deny
     ask = Ask
 
-class Rule(object):
+class Rule:
     '''A single line of policy file
 
     Avoid instantiating manually, use either :py:meth:`from_line()` or
@@ -1156,7 +1156,6 @@ class AbstractParser(metaclass=abc.ABCMeta):
 
         This method may be overloaded in subclass. By default it does nothing.
         '''
-        pass
 
 class AbstractPolicy(AbstractParser):
     '''This class is a parser that accumulates the rules to form policy.'''
