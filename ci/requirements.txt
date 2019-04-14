@@ -1,0 +1,6 @@
+# WARNING: those requirements are used only for travis-ci.com
+# they SHOULD NOT be used under normal conditions; use system package manager
+docutils
+pylint
+sphinx
+codecov
