@@ -37,7 +37,7 @@ BuildRequires:  python%{python3_pkgversion}-devel
 BuildRequires:	python%{python3_pkgversion}-sphinx
 BuildRequires:	python%{python3_pkgversion}-dbus
 BuildRequires:	qubes-libvchan-devel
-BuildRequires:  python%{python3_pkgversion}-rpm-macros
+BuildRequires:  python3-rpm-macros
 
 Requires:   python%{python3_pkgversion}
 Conflicts:  qubes-utils-libs < 4.1.0
