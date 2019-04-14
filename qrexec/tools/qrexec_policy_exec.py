@@ -144,7 +144,9 @@ def main(args=None):
                 just_evaluate=args.just_evaluate,
                 assume_yes_for_ask=args.assume_yes_for_ask))
         resolution = policy.evaluate(request)
-        resolution.execute(caller_ident)
+        result = resolution.execute(caller_ident)
+        if result is not None:
+            resolution = result
         log.info(log_prefix + 'allowed to {}'.format(resolution.target))
 
     except exc.PolicySyntaxError as err:
