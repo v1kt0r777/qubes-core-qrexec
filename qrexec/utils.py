@@ -72,8 +72,7 @@ def qubesd_call(dest, method, arg=None, payload=None):
     try:
         client_socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         client_socket.connect(socket_path)
-    except IOError:
-        # pylint: disable=try-except-raise
+    except IOError: # pylint: disable=try-except-raise
         # TODO:
         raise
 
@@ -95,9 +94,8 @@ def qubesd_call(dest, method, arg=None, payload=None):
         (_, exc_type, _traceback, _format_string, _args) = \
             return_data.split(b'\x00', 4)
         raise QubesMgmtException(exc_type.decode('ascii'))
-    else:
-        raise AssertionError(
-            'invalid qubesd response: {!r}'.format(return_data))
+    raise AssertionError(
+        'invalid qubesd response: {!r}'.format(return_data))
 
 
 def get_system_info():
